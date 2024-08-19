@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cover Letter Generator</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <script>
         function toggleEditMode() {
             const form = document.getElementById('editForm');
@@ -28,7 +28,7 @@
 </head>
 <body>
     <button id="editButton" onclick="toggleEditMode()">Edit Cover Letter</button>
-    <button id="pdfButton" onclick="window.location.href='/download-pdf'">Download PDF</button>
+    <button id="pdfButton" onclick="href='/download-pdf'">Download PDF</button>
 
     <!-- Edit Form -->
     <form id="editForm" action="/save" method="POST" style="display: none;">

@@ -35,15 +35,9 @@ app.post('/save', (req, res) => {
 });
 
 app.get('/download-pdf', (req, res) => {
-    if (Object.keys(coverLetterData).length === 0) {
-        console.error('No data available to generate PDF');
-        return res.status(400).send('No data available to generate PDF');
-    }
-
-    console.log('Generating PDF with data:', coverLetterData);
-
     const doc = new PDFDocument();
     const filePath = path.join(__dirname, 'public', 'cover-letter.pdf');
+
     doc.pipe(fs.createWriteStream(filePath));
 
     doc.fontSize(12)
@@ -63,7 +57,7 @@ app.get('/download-pdf', (req, res) => {
 
     fs.access(filePath, fs.constants.F_OK, (err) => {
         if (err){
-            console.log(`File does not exist while ${err}`)
+            console.error('File does not exist:', err);
             return res.status(500).send('Error generating PDF');
         }
         res.download(filePath, 'cover-letter.pdf', (err) => {
