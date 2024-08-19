@@ -98,7 +98,7 @@
 
         function generatePDF() {
             const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+            const doc = new jsPDF('p', 'mm', 'a4');
             const content = document.getElementById('displaySection').innerText;
 
             const margin = 20;
@@ -120,7 +120,7 @@
     <button id="pdfButton" type="button">Download PDF</button>
 
     <!-- Edit Form -->
-    <form id="editForm" class="hidden">
+    <form id="editForm" class="hidden content">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name"><br>
 
@@ -149,6 +149,6 @@
     </form>
 
     <!-- Display Section -->
-    <section id="displaySection"></section>
+    <section id="displaySection" class="content"></section>
 </body>
 </html>
